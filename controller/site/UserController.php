@@ -85,4 +85,23 @@ function storeAction(){
   // loadView('master', 'user/profile');
 }
 
+function changePasswordAction(){
+  require_once PATH_MODEL . '/User.php';
+  require_once PATH_SYSTEM . '/core/view/view.php';
+  $vcpass = $_POST['cpass'];
+  $user_id = $_SESSION['user']['id'];
+  $user_data = getUserById($user_id);
+  if ($vcpass != $user_data['user_pass']){
+    $_SESSION['msg']['cpass'] = "Mật khẩu cũ không đúng!";
+    header("location:index.php?c=user&a=edit");
+  }else{
+    $data = [
+      'user_pass' => $_POST['npass']
+    ];
+    updateById($_GET['id'], $data);
+    $_SESSION['msg']['changePwSs'] = "Đổi mật khẩu thành công!";
+    header("location:index.php?c=user&a=index");
+  }
+}
+
 ?>

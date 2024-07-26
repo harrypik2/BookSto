@@ -199,7 +199,7 @@
                                           <h6><b><?php echo number_format($bestsell['prd_price'],0,'.',','); ?> đ</b></h6>
                                        </div>
                                        <div class="iq-product-action">
-                                          <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                          <a href="index.php?c=cart&a=add&id=<?php echo $bestsell['prd_id'];?>"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
                                           <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
                                        </div>
                                     </div>

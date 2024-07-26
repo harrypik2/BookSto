@@ -54,7 +54,7 @@
                                         }
                                       ?></td>
                                   <td><?php echo number_format($data['order']['all_price'], 0, '.', ','); ?> đ</td>
-                                  <td><?php echo date_format(date_create($data['order']['order_date']),"d/m/Y"); ?></td>
+                                  <td><?php echo date_format(date_create($data['order']['order_date']),"H:i:s d/m/Y"); ?></td>
                               </tr>
                            </tbody>
                         </table>

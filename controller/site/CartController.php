@@ -70,9 +70,7 @@
                 $_SESSION['cart'][$id]['prd_price'] = $data['prd_price'];
             }
 
-            //Thêm thông báo vào session để hiển thi ra view
-            $_SESSION['notification'] = "This is a server-side notification message.";
-
+            $_SESSION['msg']['AddPrdSs'] = "Thêm sản phẩm vào giỏ thành công!";
             // echo "<pre>";
             // print_r($_SESSION['toastr_message']);
             // die;

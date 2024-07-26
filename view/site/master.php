@@ -19,8 +19,8 @@
       <link rel="stylesheet" href="/BookSto/public/css/responsive.css">
       <link rel="stylesheet" href="/BookSto/public/css/success.css">
       <!-- Test CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
    </head>
    <body class="sidebar-main-active right-column-fixed">
       <!-- loader Start -->
@@ -202,28 +202,6 @@
                                           </div>
                                        </div>
                                     </a>
-                                    <!-- <a href="#" class="iq-sub-card iq-bg-primary-hover">
-                                       <div class="media align-items-center">
-                                          <div class="rounded iq-card-icon iq-bg-primary">
-                                             <i class="ri-account-box-line"></i>
-                                          </div>
-                                          <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">Account settings</h6>
-                                             <p class="mb-0 font-size-12">Manage your account parameters.</p>
-                                          </div>
-                                       </div>
-                                    </a> -->
-                                    <!-- <a href="#" class="iq-sub-card iq-bg-primary-hover">
-                                       <div class="media align-items-center">
-                                          <div class="rounded iq-card-icon iq-bg-primary">
-                                             <i class="ri-lock-line"></i>
-                                          </div>
-                                          <div class="media-body ml-3">
-                                             <h6 class="mb-0 ">Privacy Settings</h6>
-                                             <p class="mb-0 font-size-12">Control your privacy parameters.</p>
-                                          </div>
-                                       </div>
-                                    </a> -->
                                     <div class="d-inline-block w-100 text-center p-3">
                                        <a class="bg-primary iq-sign-btn" href="sign-out.php" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
@@ -273,6 +251,40 @@
       <!-- Footer END -->
 
       <!-- Optional JavaScript -->
+       <script>
+         <?php if (isset($_SESSION['msg']['cpass'])) { ?>
+            new Noty({
+               text: '<?php echo $_SESSION['msg']['cpass']; ?>',
+               type: 'error',
+               layout: 'topRight',
+               theme: 'bootstrap-v4',
+               timeout: 2000
+            }).show();
+            <?php unset($_SESSION['msg']['cpass']); // Xóa thông báo sau khi hiển thị ?>
+         <?php } ?>
+
+         <?php if (isset($_SESSION['msg']['changePwSs'])) { ?>
+            new Noty({
+               text: '<?php echo $_SESSION['msg']['changePwSs']; ?>',
+               type: 'success',
+               layout: 'topRight',
+               theme: 'bootstrap-v4',
+               timeout: 2000
+            }).show();
+            <?php unset($_SESSION['msg']['changePwSs']); // Xóa thông báo sau khi hiển thị ?>
+         <?php } ?>
+
+         <?php if (isset($_SESSION['msg']['AddPrdSs'])) { ?>
+            new Noty({
+               text: '<?php echo $_SESSION['msg']['AddPrdSs']; ?>',
+               type: 'success',
+               layout: 'bottomRight',
+               theme: 'bootstrap-v4',
+               timeout: 2000
+            }).show();
+            <?php unset($_SESSION['msg']['AddPrdSs']); // Xóa thông báo sau khi hiển thị ?>
+         <?php } ?>
+      </script>
 
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="/BookSto/public/js/jquery.min.js"></script>

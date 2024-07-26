@@ -88,7 +88,7 @@
                                             ?>
                                         </td>                                       
                                         <td><?php echo number_format($ord['all_price'], 0, '.', ','); ?> đ</td>
-                                        <td><?php echo date_format(date_create($ord['order_date']),"d/m/Y"); ?></td>
+                                        <td><?php echo date_format(date_create($ord['order_date']),"H:i:s d/m/Y"); ?></td>
                                         <td>
                                              <div class="flex align-items-center list-user-action">
                                                 <a class="bg-info" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" href="index.php?c=cart&a=detail&id=<?php echo $ord['order_id']; ?>"><i class="ri-eye-line"></i></a>

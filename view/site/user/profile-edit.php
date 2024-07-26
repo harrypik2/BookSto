@@ -80,18 +80,18 @@
                            </div>
                         </div>
                         <div class="iq-card-body">
-                           <form>
+                           <form action="index.php?c=user&a=changePassword&id=<?php echo $data['user_id']; ?>" id="changePasswordForm" role="form" method="post">
                               <div class="form-group">
                                  <label for="cpass">Current Password:</label>
-                                 <input type="Password" class="form-control" id="cpass" value="">
+                                 <input type="Password" class="form-control" name="cpass" id="cpass" value="" required>
                               </div>
                               <div class="form-group">
                                  <label for="npass">New Password:</label>
-                                 <input type="Password" class="form-control" id="npass" value="">
+                                 <input type="Password" class="form-control" name="npass" id="npass" value="" required>
                               </div>
                               <div class="form-group">
                                  <label for="vpass">Verify Password:</label>
-                                 <input type="Password" class="form-control" id="vpass" value="">
+                                 <input type="Password" class="form-control" name="vpass" id="vpass" value="" required>
                               </div>
                               <button type="submit" class="btn btn-primary mr-2">Submit</button>
                               <button type="reset" class="btn iq-bg-danger" onclick="redirectToPage()">Cancel</button>
@@ -110,4 +110,21 @@
    function redirectToPage() {
       window.location.href = 'index.php?c=user&a=index';
    }
+
+   document.getElementById('changePasswordForm').addEventListener('submit', function(event) {
+      const newPassword = document.getElementById('npass').value;
+      const confirmPassword = document.getElementById('vpass').value;
+
+      if (newPassword !== confirmPassword) {
+         event.preventDefault(); // Ngăn chặn gửi biểu mẫu
+         new Noty({
+            text: 'New password and Verify Password do not match.',
+            type: 'error',
+            layout: 'topRight',
+            theme: 'bootstrap-v4',
+            timeout: 2000
+        }).show();
+      }
+   });
+
 </script>
