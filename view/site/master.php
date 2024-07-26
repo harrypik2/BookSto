@@ -18,7 +18,8 @@
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="/BookSto/public/css/responsive.css">
       <link rel="stylesheet" href="/BookSto/public/css/success.css">
-      <!-- Test CSS -->
+      <!-- Noty CSS -->
+      <!-- <link rel="stylesheet" href="/BookSto/public/css/noty.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
    </head>
@@ -274,6 +275,17 @@
             <?php unset($_SESSION['msg']['changePwSs']); // Xóa thông báo sau khi hiển thị ?>
          <?php } ?>
 
+         <?php if (isset($_SESSION['msg']['UpdatePrfSs'])) { ?>
+            new Noty({
+               text: '<?php echo $_SESSION['msg']['UpdatePrfSs']; ?>',
+               type: 'success',
+               layout: 'bottomRight',
+               theme: 'bootstrap-v4',
+               timeout: 2000
+            }).show();
+            <?php unset($_SESSION['msg']['UpdatePrfSs']); // Xóa thông báo sau khi hiển thị ?>
+         <?php } ?>
+
          <?php if (isset($_SESSION['msg']['AddPrdSs'])) { ?>
             new Noty({
                text: '<?php echo $_SESSION['msg']['AddPrdSs']; ?>',
@@ -339,6 +351,8 @@
       <script src="/BookSto/public/js/style-customizer.js"></script>
       <!-- Chart Custom JavaScript -->
       <script src="/BookSto/public/js/chart-custom.js"></script>
+      <!-- Noty alert JavaScript
+      <script src="/BookSto/public/js/noty.js"></script> -->
       <!-- Custom JavaScript -->
       <script src="/BookSto/public/js/custom.js"></script>
    </body>

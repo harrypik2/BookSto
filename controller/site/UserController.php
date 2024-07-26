@@ -54,21 +54,20 @@ function storeAction(){
   require_once PATH_SYSTEM . '/core/view/view.php';
   $data = [];
   $user_id = $_SESSION['user']['id'];
-
-  $uploadDir = 'public/uploads/avatar/';
-  $uniqueName = uniqid() . '-' . basename($_FILES['acc_image']['name']);
-  $tmp_name = $_FILES['acc_image']['tmp_name'];
-  move_uploaded_file($tmp_name, $uploadDir.$uniqueName);
-
-  $data = [
-    'user_id' => $user_id,
-    'acc_avatar' => $uniqueName,
-    'acc_full_name' => $_POST['acc_full'],
-    'acc_date_of_birth' => $_POST['acc_dob'],
-    'acc_bio' => $_POST['acc_bio'],
-    'acc_phone_number' => $_POST['acc_phone'],
-    'acc_address' => $_POST['acc_address'],
-  ];
+  if(!empty($_FILES['acc_image']['name'])){
+    $uploadDir = 'public/uploads/avatar/';
+    $uniqueName = uniqid() . '-' . basename($_FILES['acc_image']['name']);
+    $data['acc_avatar'] = $uniqueName;
+    $_SESSION['user']['avatar'] = $uniqueName;
+    $tmp_name = $_FILES['acc_image']['tmp_name'];
+    move_uploaded_file($tmp_name, $uploadDir.$uniqueName);
+  }
+    $data['user_id'] = $user_id;
+    $data['acc_full_name'] = $_POST['acc_full'];
+    $data['acc_date_of_birth'] = $_POST['acc_dob'];
+    $data['acc_bio'] = $_POST['acc_bio'];
+    $data['acc_phone_number'] = $_POST['acc_phone'];
+    $data['acc_address'] = $_POST['acc_address'];
 
   if (empty(getUserProfilesByIdUser($user_id))){
     storeProfile($data);
@@ -76,7 +75,7 @@ function storeAction(){
     updateProfileByUserId($user_id, $data);
   }
 
-  $_SESSION['user']['avatar'] = $uniqueName;
+  $_SESSION['msg']['UpdatePrfSs'] = "Cập nhật thông tin thành công!";
 
     // echo "<pre>";
     // print_r($data);
