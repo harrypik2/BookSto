@@ -193,30 +193,31 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label>Full Name: *</label> 
-                                             <input type="text" class="form-control" name="fullname" required="">
+                                             <input type="text" class="form-control" name="fullname" id="fullname1" required="" value="<?php echo $_SESSION['profile']['fullname']; ?>">
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group"> 
                                              <label>Mobile Number: *</label> 
-                                             <input type="text" class="form-control" name="phone" required="">
+                                             <input type="tel" pattern="^0\d{9}$|^\+\d{11}$" class="form-control" name="phone" id="phone1" required="" value="<?php echo $_SESSION['profile']['phone']; ?>">
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group"> 
                                              <label>Email: *</label> 
-                                             <input type="email" class="form-control" name="mail" required="">
+                                             <input type="email" class="form-control" name="mail" id="mail1" required="" value="<?php echo $_SESSION['profile']['mail']; ?>">
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group"> 
                                              <label>Address: *</label> 
-                                             <input type="text" class="form-control" name="address" required="">
+                                             <input type="text" class="form-control" name="address" id="address1" required="" value="<?php echo $_SESSION['profile']['address']; ?>">
                                           </div>
                                        </div>
                                        <input type="hidden" name="all_price" value="<?php echo $totalPriceVAT; ?>">
                                        <div class="col-md-6">
                                           <button id="savenddeliver" type="submit" class="btn btn-primary">Buy Now</button>
+                                          <button type="reset" class="btn btn-danger">Reset</button>
                                        </div>
                                     </div>
                                  </form>
@@ -234,5 +235,18 @@
          function deleteCart() {
             return confirm("Bạn có muốn xóa không?");
          }
+      </script>
+
+      <script>
+         document.querySelector('#formCash button[type="reset"]').addEventListener('click', function(event) {
+
+         document.getElementById("fullname1").value = "";
+         document.getElementById("phone1").value = "";
+         document.getElementById("mail1").value = "";
+         document.getElementById("address1").value = "";
+
+         event.preventDefault(); // Ngăn chặn submit
+
+      });
       </script>
       <!-- Wrapper END -->

@@ -23,14 +23,14 @@
                   <div class="iq-card">
                      <div class="iq-card-header d-flex justify-content-between">
                         <div class="iq-header-title">
-                           <h4 class="card-title">Edit User: <?php echo $data['user_full']; ?></h4>
+                           <h4 class="card-title">Edit User: <?php echo $data['user_name']; ?></h4>
                         </div>
                      </div>
                      <div class="iq-card-body">
                            <form action="index.php?c=user&a=update&id=<?php echo $data['user_id']; ?>" method="post">
                               <div class="form-group">
                                  <label>User Name:</label>
-                                 <input required name="user_full" type="text" value="<?php echo $data['user_full']; ?>" class="form-control">
+                                 <input required name="user_name" type="text" value="<?php echo $data['user_name']; ?>" class="form-control">
                               </div>
                               <div class="form-group">
                                  <label>Email:</label>

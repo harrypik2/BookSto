@@ -5,7 +5,7 @@
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Booksto - Admin</title>
+      <title>Booksto</title>
       <!-- Favicon -->
       <link rel="shortcut icon" href="/BookSto/public/images/favicon.ico" />
       <!-- Bootstrap CSS -->
@@ -18,6 +18,9 @@
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="/BookSto/public/css/responsive.css">
       <link rel="stylesheet" href="/BookSto/public/css/success.css">
+      <!-- Test CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
    </head>
    <body class="sidebar-main-active right-column-fixed">
       <!-- loader Start -->
@@ -163,9 +166,9 @@
                         </li>
                         <li class="line-height pt-3">
                            <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                              <img src="/BookSto/public/uploads/user.png" class="img-fluid rounded-circle mr-3" alt="user">
+                              <img src="/BookSto/public/uploads/avatar/<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['avatar'];} else { echo "user.png";} ?>" class="img-fluid rounded-circle mr-3" alt="user">
                               <div class="caption">
-                                 <h6 class="mb-1 line-height"><?php if(isset($_SESSION['user'])) echo $_SESSION['user']['user_full']; ?></h6>
+                                 <h6 class="mb-1 line-height"><?php if(isset($_SESSION['user'])) echo $_SESSION['user']['user_name']; ?></h6>
                                  <!-- <p class="mb-0 text-primary">$20.32</p> -->
                               </div>
                            </a>
@@ -173,11 +176,11 @@
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                       <h5 class="mb-0 text-white line-height">Hello <?php if(isset($_SESSION['user'])) echo $_SESSION['user']['user_full']; ?></h5>
+                                       <h5 class="mb-0 text-white line-height">Hello <?php if(isset($_SESSION['user'])) echo $_SESSION['user']['user_name']; ?></h5>
                                        <!-- <span class="text-white font-size-12">Available</span> -->
                                     </div>
                                     <?php if(isset($_SESSION['user'])) {?>
-                                    <a href="#" class="iq-sub-card iq-bg-primary-hover">
+                                    <a href="index.php?c=user&a=index" class="iq-sub-card iq-bg-primary-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-primary">
                                              <i class="ri-file-user-line"></i>
@@ -188,7 +191,7 @@
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="#" class="iq-sub-card iq-bg-primary-hover">
+                                    <a href="index.php?c=user&a=edit" class="iq-sub-card iq-bg-primary-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-primary">
                                              <i class="ri-profile-line"></i>
@@ -199,7 +202,7 @@
                                           </div>
                                        </div>
                                     </a>
-                                    <a href="#" class="iq-sub-card iq-bg-primary-hover">
+                                    <!-- <a href="#" class="iq-sub-card iq-bg-primary-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-primary">
                                              <i class="ri-account-box-line"></i>
@@ -209,8 +212,8 @@
                                              <p class="mb-0 font-size-12">Manage your account parameters.</p>
                                           </div>
                                        </div>
-                                    </a>
-                                    <a href="#" class="iq-sub-card iq-bg-primary-hover">
+                                    </a> -->
+                                    <!-- <a href="#" class="iq-sub-card iq-bg-primary-hover">
                                        <div class="media align-items-center">
                                           <div class="rounded iq-card-icon iq-bg-primary">
                                              <i class="ri-lock-line"></i>
@@ -220,7 +223,7 @@
                                              <p class="mb-0 font-size-12">Control your privacy parameters.</p>
                                           </div>
                                        </div>
-                                    </a>
+                                    </a> -->
                                     <div class="d-inline-block w-100 text-center p-3">
                                        <a class="bg-primary iq-sign-btn" href="sign-out.php" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
@@ -270,6 +273,7 @@
       <!-- Footer END -->
 
       <!-- Optional JavaScript -->
+
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="/BookSto/public/js/jquery.min.js"></script>
       <script src="/BookSto/public/js/popper.min.js"></script>

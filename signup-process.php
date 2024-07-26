@@ -7,7 +7,7 @@
     require_once PATH_MODEL.'/User.php';
 
     if(isset($_POST['btn_signup'])){
-        $user_name = $_POST['user_full'];
+        $user_name = $_POST['user_name'];
         $user_mail = $_POST['user_mail'];
         $user_pass = $_POST['user_pass'];
         $user_level = 2;
@@ -22,7 +22,7 @@
             }
         }else {
             $data = [
-                'user_full' => $user_name,
+                'user_name' => $user_name,
                 'user_mail' => $user_mail,
                 'user_pass' => $user_pass,
                 'user_level' => $user_level

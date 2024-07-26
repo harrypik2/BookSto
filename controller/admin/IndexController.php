@@ -17,7 +17,7 @@ function indexAction() {
     $data['totalOrder'] = getTotalOrder();
     $data['unprocessOrder'] = getAllOrdersUnprocess();
     if (!isset($_GET['year'])) {
-        $year = '2023';
+        $year = '2024';
     }else{
         $year = $_GET['year'];
     }

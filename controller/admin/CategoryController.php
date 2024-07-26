@@ -46,6 +46,9 @@ function editAction() {
         die('Không nhận được id cần tìm');
     }
     $data = getCategoryById($id);
+    // echo "<pre>";
+    // print_r($data);
+    // die;
     loadView('master','Category/edit-category', $data);
 }
 

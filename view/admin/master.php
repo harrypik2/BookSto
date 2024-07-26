@@ -104,7 +104,7 @@
                   </div>
                   <div class="navbar-breadcrumb">
                      <h4 class="mb-0 text-dark">Dashboard</h4>
-                     <p class="mb-0"><span class="text-primary">Hi there,</span> Welcome back <?php echo $_SESSION['user']['user_full']; ?></p>
+                     <p class="mb-0"><span class="text-primary">Hi there,</span> Welcome back <?php echo $_SESSION['user']['user_name']; ?></p>
                   </div>
                </nav>
             </div>

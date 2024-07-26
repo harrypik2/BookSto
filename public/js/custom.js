@@ -674,13 +674,13 @@ Index Of Script
 
           if(id == 'btn-minus')
           {
-            if(val != 0)
+            if(val != 1)
             {
               jQuery('#quantity').val(val-1);
             }
             else
             {
-              jQuery('#quantity').val(0);
+              jQuery('#quantity').val(1);
             }
 
           }

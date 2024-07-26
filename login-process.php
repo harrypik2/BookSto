@@ -20,10 +20,24 @@
             //Lấy thông tin người dùng vừa đăng nhập
             $result = mysqli_fetch_assoc($query);
             //lưu thông tin vào session
-            $_SESSION['user']['user_full'] = $result['user_full'];
+            $_SESSION['user']['user_name'] = $result['user_name'];
             $_SESSION['user']['user_mail'] = $result['user_mail'];
             $_SESSION['user']['level'] = $result['user_level'];
             $_SESSION['user']['id'] = $result['user_id'];
+
+            //Tiếp tục lấy thông tin tài khoản
+            $sqla = "SELECT * FROM account WHERE `user_id` = ".$result['user_id']."";
+            $querya = mysqli_query($conn, $sqla);
+
+            if(mysqli_num_rows($query) > 0) {
+                $result = mysqli_fetch_assoc($querya);
+                if (empty($result['acc_avatar'])) {
+                    $_SESSION['user']['avatar'] = "user.png";
+                }else{
+                    $_SESSION['user']['avatar'] = $result['acc_avatar'];
+                }
+            }
+
             // echo "<pre>";
             // print_r($_SESSION['user']);
             // die;  

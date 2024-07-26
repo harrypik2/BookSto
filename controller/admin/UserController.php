@@ -30,7 +30,7 @@ function storeAction() {
         }
     }else {
         $data = [
-            'user_full' => $_POST['user_full'],
+            'user_name' => $_POST['user_name'],
             'user_mail' => $_POST['user_mail'],
             'user_pass' => $_POST['user_pass'],
             'user_level' => $_POST['user_level']
@@ -63,7 +63,7 @@ function updateAction() {
         }
     }else {
         $data = [
-            'user_full' => $_POST['user_full'],
+            'user_name' => $_POST['user_name'],
             'user_mail' => $_POST['user_mail'],
             'user_pass' => $_POST['user_pass'],
             'user_level' => $_POST['user_level']

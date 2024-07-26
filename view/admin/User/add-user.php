@@ -30,7 +30,7 @@
                            <form action="index.php?c=user&a=store" method="post">
                               <div class="form-group">
                                  <label>User Name:</label>
-                                 <input required name="user_full" type="text" class="form-control">
+                                 <input required name="user_name" type="text" class="form-control">
                               </div>
                               <div class="form-group">
                                  <label>Email:</label>

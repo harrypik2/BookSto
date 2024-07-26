@@ -41,8 +41,8 @@
                               } ?>
                               <form class="mt-4 form-text" method="post" action="signup-process.php">
                                   <div class="form-group">
-                                      <label for="inputName">Your Full Name</label>
-                                      <input required type="text" class="form-control text-dark mb-0" id="inputName" name="user_full" placeholder="Your Full Name">
+                                      <label for="inputName">User Name</label>
+                                      <input required type="text" class="form-control text-dark mb-0" id="inputName" name="user_name" placeholder="Your Full Name">
                                   </div>
                                   <div class="form-group">
                                       <label for="inputEmail">Email address</label>

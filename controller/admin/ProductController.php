@@ -64,9 +64,11 @@
         
         // upload ảnh
         if(!empty($_FILES['prd_image']['name'])) {
-            $data['prd_image'] = $_FILES['prd_image']['name'];
+            $uploadDir = 'public/uploads/';
+            $uniqueName = uniqid() . '-' . basename($_FILES['prd_image']['name']);
+            $data['prd_image'] = $uniqueName;
             $tmp_name = $_FILES['prd_image']['tmp_name'];
-            move_uploaded_file($tmp_name, 'public/uploads/'.$data['prd_image']);
+            move_uploaded_file($tmp_name, $uploadDir.$uniqueName);
         }else{
             $data['prd_image'] = "no-img.jpg";
         }
@@ -135,9 +137,11 @@
 
         // upload ảnh
         if(!empty($_FILES['prd_image']['name'])) {
-            $data['prd_image'] = $_FILES['prd_image']['name'];
+            $uploadDir = 'public/uploads/';
+            $uniqueName = uniqid() . '-' . basename($_FILES['prd_image']['name']);
+            $data['prd_image'] = $uniqueName;
             $tmp_name = $_FILES['prd_image']['tmp_name'];
-            move_uploaded_file($tmp_name, 'public/admin/images/'.$data['prd_image']);
+            move_uploaded_file($tmp_name, $uploadDir.$uniqueName);
         }
 
         //Validate thêm các trường còn lại để đưa vào làm điều kiện

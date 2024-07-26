@@ -304,7 +304,7 @@ INSERT INTO `publisher` (`pub_id`, `pub_name`, `pub_description`, `isDelete`) VA
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `user_full` varchar(255) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
   `user_mail` varchar(255) NOT NULL,
   `user_pass` varchar(255) NOT NULL,
   `user_level` int(1) NOT NULL,
@@ -315,7 +315,7 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_full`, `user_mail`, `user_pass`, `user_level`, `isDelete`) VALUES
+INSERT INTO `users` (`user_id`, `user_name`, `user_mail`, `user_pass`, `user_level`, `isDelete`) VALUES
 (1, 'Administrator', 'admin@gmail.com', '123456', 1, 0),
 (2, 'Nguyễn Van A', 'nguyenvana@gmail.com', '123456', 2, 0),
 (3, 'Nguyễn Van B', 'nguyenvanb@gmail.com', '123456', 2, 0),

@@ -29,7 +29,7 @@
                                   <?php foreach ($data as $key => $user) { ?>
                                     <tr>
                                         <td><?php echo $user['user_id']; ?></td>
-                                        <td><?php echo $user['user_full']; ?></td>
+                                        <td><?php echo $user['user_name']; ?></td>
                                         <td><?php echo $user['user_mail']; ?></td>
                                         <td><?php echo $user['user_pass']; ?></td>
                                         <td>

@@ -72,7 +72,7 @@
                      <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
                            <div class="iq-header-title">
-                              <h4 class="card-title">Revenue <?php if(isset($_GET['year'])) {echo $_GET['year'];}else{ echo "2023";} ?></h4>
+                              <h4 class="card-title">Revenue <?php if(isset($_GET['year'])) {echo $_GET['year'];}else{ echo "2024";} ?></h4>
                            </div>
                            <div class="iq-card-header-toolbar d-flex align-items-center">
                               <div class="dropdown">

@@ -18,6 +18,7 @@
     function indexAction() {
         require_once PATH_SYSTEM.'/core/view/view.php';
         require_once PATH_MODEL.'/Product.php';
+        require_once PATH_MODEL.'/User.php';
         $data = [];
         $ids = [];
         if(isset($_SESSION['cart'])){
@@ -27,10 +28,26 @@
             $ids = "(".implode(",", $ids).")";
             $data = getAllProductInList($ids);
         }
+        if(isset($_SESSION['user'])){
+            $user_id = $_SESSION['user']['id'];
+            $dataUser = getUserProfilesByIdUser($user_id);
+            if (empty($dataUser)){
+                $_SESSION['profile']['fullname'] = "";
+                $_SESSION['profile']['mail'] = "";
+                $_SESSION['profile']['phone'] = "";
+                $_SESSION['profile']['address'] = "";
+                
+            }else{
+                $_SESSION['profile']['fullname'] = $dataUser['acc_full_name'];
+                $_SESSION['profile']['mail'] = $_SESSION['user']['user_mail'];
+                $_SESSION['profile']['phone'] = $dataUser['acc_phone_number'];
+                $_SESSION['profile']['address'] = $dataUser['acc_address'];
+            }
+        }
 
         // unset($_SESSION['cart']);
         // echo "<pre>";
-        // print_r(count($_SESSION['cart']));
+        // print_r($_SESSION['profile']);
         // die;
         loadView('master','cart/cart', $data);
     }
@@ -52,9 +69,14 @@
                 $data = getProductById($id);
                 $_SESSION['cart'][$id]['prd_price'] = $data['prd_price'];
             }
+
+            //Thêm thông báo vào session để hiển thi ra view
+            $_SESSION['notification'] = "This is a server-side notification message.";
+
             // echo "<pre>";
-            // print_r($_SERVER['HTTP_REFERER']);
+            // print_r($_SESSION['toastr_message']);
             // die;
+
             header("Location:".$_SERVER['HTTP_REFERER']); 
         }else{
         header("Location:index.php?c=cart&a=index");
@@ -113,7 +135,7 @@
         require_once PATH_MODEL.'/Order.php';
         require_once PATH_SYSTEM.'/core/view/view.php';
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $date = date('Y-m-d');
+        $date = date('Y-m-d H:i:s');
         $data = [
             'user_id' => $_SESSION['user']['id'],
             'user_name' => $_POST['fullname'],

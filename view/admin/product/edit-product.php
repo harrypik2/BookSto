@@ -10,7 +10,7 @@
                            </div>
                         </div>
                         <div class="iq-card-body">
-                           <form action="index.php?c=product&a=update&id=<?php echo $data['product']['prd_id']; ?>" role="form" method="post" enctype="multipart/form-data">
+                           <form action="index.php?c=product&a=update&id=<?php echo $data['product']['prd_id']; ?>" method="post" enctype="multipart/form-data">
                            <div class="form-group">
                                  <label>Book Name:</label>
                                  <input required name="prd_name" type="text" class="form-control" value="<?php echo $data['product']['prd_name']; ?>">
